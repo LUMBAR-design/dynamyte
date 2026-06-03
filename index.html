@@ -96,6 +96,63 @@
 }
 
 .about-inner-pad{padding:80px 0;}
+
+/* ── STOCK STATUS BADGES ── */
+.stock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+.stock-badge.available {
+  background: #d4f0e0;
+  color: #0a6b35;
+}
+.stock-badge.available::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0a6b35;
+  animation: pulse 2s infinite;
+}
+.stock-badge.sold-out {
+  background: #fde8e8;
+  color: #c0392b;
+}
+.stock-badge.sold-out::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c0392b;
+}
+.product-card.sold-out-card .product-image {
+  opacity: 0.5;
+  filter: grayscale(60%);
+}
+.product-card.sold-out-card .product-price {
+  color: var(--gray);
+}
+.btn-buy.disabled {
+  background: var(--gray-light);
+  color: var(--gray);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.btn-buy.disabled:hover {
+  background: var(--gray-light);
+}
+.product-card.sold-out-card {
+  opacity: 0.85;
+}
+
 /* Extra small phones (e.g. iPhone SE, Galaxy A series) */
 @media (max-width:380px){
   .hero h1{font-size:32px;}
@@ -497,6 +554,7 @@
         </div>
         <div class="product-info">
           <h3>iPhone 12 Pro</h3>
+          <span class="stock-badge available">Available</span>
           <p class="product-specs">256GB · Battery 85% · Case + Charger included</p>
           <div class="product-price">$300</div>
           <button class="btn-buy" onclick="openPayment('iPhone 12 Pro – 256GB (Battery 85%)', 300)">
@@ -514,6 +572,7 @@
         </div>
         <div class="product-info">
           <h3>iPhone 12 Pro</h3>
+          <span class="stock-badge available">Available</span>
           <p class="product-specs">256GB · Battery 97% · Case + Charger included</p>
           <div class="product-price">$350</div>
           <button class="btn-buy" onclick="openPayment('iPhone 12 Pro – 256GB (Battery 97%)', 350)">
@@ -531,6 +590,7 @@
         </div>
         <div class="product-info">
           <h3>iPhone 13</h3>
+          <span class="stock-badge available">Available</span>
           <p class="product-specs">256GB · Battery 84% · Case + Charger included</p>
           <div class="product-price">$350</div>
           <button class="btn-buy" onclick="openPayment('iPhone 13 – 256GB (Battery 84%)', 350)">
@@ -548,6 +608,7 @@
         </div>
         <div class="product-info">
           <h3>iPhone 13</h3>
+          <span class="stock-badge available">Available</span>
           <p class="product-specs">128GB · Battery 85% · Case + Charger included</p>
           <div class="product-price">$320</div>
           <button class="btn-buy" onclick="openPayment('iPhone 13 – 128GB (Battery 85%)', 320)">
@@ -565,6 +626,7 @@
         </div>
         <div class="product-info">
           <h3>iPhone 13 Pro Max</h3>
+          <span class="stock-badge available">Available</span>
           <p class="product-specs">256GB · Battery 99% · Case + Charger included</p>
           <div class="product-price">$530</div>
           <button class="btn-buy" onclick="openPayment('iPhone 13 Pro Max – 256GB (Battery 99%)', 530)">
@@ -575,17 +637,18 @@
       </div>
 
       <!-- iPhone 14 — 256GB 83% -->
-      <div class="product-card" data-grade="14">
+      <div class="product-card sold-out-card" data-grade="14">
         <div class="product-image">
           <span class="product-badge grade-b">Grade B</span>
           <svg class="product-svg-icon" width="100" height="160" viewBox="0 0 100 160" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="2" width="80" height="156" rx="14" fill="#1a1a3e" stroke="rgba(157,147,224,0.7)" stroke-width="2"/><rect x="15" y="8" width="70" height="130" rx="10" fill="#0d0d25"/><rect x="35" y="8" width="30" height="12" rx="6" fill="#1a1a3e"/><rect x="20" y="28" width="60" height="80" rx="4" fill="url(#grad14)" opacity="0.6"/><text x="50" y="120" text-anchor="middle" font-size="9" fill="rgba(157,147,224,0.9)" font-family="Montserrat,sans-serif" font-weight="600">iPhone 14</text><rect x="38" y="144" width="24" height="3" rx="1.5" fill="rgba(157,147,224,0.4)"/><rect x="56" y="10" width="22" height="28" rx="6" fill="#111130" stroke="rgba(157,147,224,0.3)" stroke-width="1"/><circle cx="67" cy="18" r="4.5" fill="#0a0a20" stroke="rgba(157,147,224,0.5)" stroke-width="1"/><circle cx="67" cy="30" r="4.5" fill="#0a0a20" stroke="rgba(157,147,224,0.5)" stroke-width="1"/><defs><linearGradient id="grad14" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#7b6fd6" stop-opacity="0.3"/><stop offset="100%" stop-color="#1a1a4e" stop-opacity="0"/></linearGradient></defs></svg>
         </div>
         <div class="product-info">
           <h3>iPhone 14</h3>
+          <span class="stock-badge sold-out">Sold Out</span>
           <p class="product-specs">256GB · Battery 83% · Case + Charger included</p>
           <p style="font-size:12px;color:var(--ecocash-green);font-weight:600;margin-bottom:10px;">Good as New</p>
           <div class="product-price">$390</div>
-          <button class="btn-buy" onclick="openPayment('iPhone 14 – 256GB (Battery 83%)', 390)">
+          <button class="btn-buy disabled" style="pointer-events:none;background:var(--gray-light);color:var(--gray);">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             Buy with EcoCash
           </button>
@@ -600,6 +663,7 @@
         </div>
         <div class="product-info">
           <h3>iPhone 14 Pro</h3>
+          <span class="stock-badge available">Available</span>
           <p class="product-specs">128GB · Battery 92% · Case + Charger included</p>
           <div class="product-price">$540</div>
           <button class="btn-buy" onclick="openPayment('iPhone 14 Pro – 128GB (Battery 92%)', 540)">
